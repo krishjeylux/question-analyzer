@@ -1,0 +1,670 @@
+{
+  "Q1": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "B",
+    "expected_answer": "$\\dfrac{F}{8}$",
+    "evaluation_criteria": [
+      "Correct option B (1)",
+      "$\\dfrac{F}{8}$"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q2": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "Resistance Temp.",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "Resistance Temp. (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q3": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "1 Ω",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "1 Ω (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q4": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "A",
+    "expected_answer": "Vd T",
+    "evaluation_criteria": [
+      "Correct option A (1)",
+      "Vd T (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q5": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "A",
+    "expected_answer": "Repelled by both the poles.",
+    "evaluation_criteria": [
+      "Correct option A (1)",
+      "Repelled by both the poles. (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q6": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "C",
+    "expected_answer": "0.19 V",
+    "evaluation_criteria": [
+      "Correct option C (1)",
+      "0.19 V (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q7": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "C",
+    "expected_answer": "Resistance (r)",
+    "evaluation_criteria": [
+      "Correct option C (1)",
+      "Resistance (r) (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q8": {
+    "type": "equation",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "C",
+    "expected_answer": "$-\\dfrac{d\\phi_E}{dt}$",
+    "evaluation_criteria": [
+      "Correct option C (1)",
+      "$-\\dfrac{d\\phi_E}{dt}$ (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q9": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "A",
+    "expected_answer": "Zero",
+    "evaluation_criteria": [
+      "Correct option A (1)",
+      "Zero (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q10": {
+    "type": "equation",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "C",
+    "expected_answer": "$n^2$",
+    "evaluation_criteria": [
+      "Correct option C (1)",
+      "$n^2$ (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q11": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "95 nm",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "95 nm (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q12": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "Independent of A",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "Independent of A (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q13": {
+    "type": "equation",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "C",
+    "expected_answer": "$t$",
+    "evaluation_criteria": [
+      "Correct option C (1)",
+      "$t$ (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q14": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "B",
+    "expected_answer": "it becomes a p-type semiconductor",
+    "evaluation_criteria": [
+      "Correct option B (1)",
+      "it becomes a p-type semiconductor (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q15": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "0.01 eV",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "0.01 eV (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q16": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "D",
+    "expected_answer": "Assertion (A) is false and Reason (R) is also false.",
+    "evaluation_criteria": [
+      "Correct option D (1)",
+      "Assertion (A) is false and Reason (R) is also false. (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q17": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "A",
+    "expected_answer": "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
+    "evaluation_criteria": [
+      "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A). (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q18": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 1,
+    "correct_option": "B",
+    "expected_answer": "Both Assertion (A) and Reason (R) are true but reason (R) is the not correct explanation of the Assertion (A)",
+    "evaluation_criteria": [
+      "Both Assertion (A) and Reason (R) are true but reason (R) is the not correct explanation of the Assertion (A) (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q19": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Force_formula": "$F=q(\\vec{v} \\times \\vec{B})$",
+      "Force_calculation": "$= q(3 \\times 10^3 \\hat{i} \\times (0.4 \\hat{i}+0.3 \\hat{j}))N = q(0.9 \\times 10^3 \\hat{k})N$",
+      "Acceleration_formula": "$F = ma = q(0.9 \\times 10^3 \\hat{k})N$",
+      "Acceleration_calculation": "$a = \\dfrac{q}{m} (0.9 \\times 10^3 \\hat{k})ms^{-2} = 4.8 \\times 10^7 \\times 0.9 \\times 10^3 \\hat{k} ms^{-2} = 4.32 \\times 10^{12} \\hat{k} ms^{-2}$"
+    },
+    "evaluation_criteria": [
+      "Force_formula) $F=q(\\vec{v} \\times \\vec{B})$ (0.5)",
+      "Force_calculation) $= q(3 \\times 10^3 \\hat{i} \\times (0.4 \\hat{i}+0.3 \\hat{j}))N = q(0.9 \\times 10^3 \\hat{k})N$ (0.5)",
+      "Acceleration_formula) $F = ma = q(0.9 \\times 10^3 \\hat{k})N$(0.5)",
+      "Acceleration_calculation) $a = \\dfrac{q}{m} (0.9 \\times 10^3 \\hat{k})ms^{-2} = 4.8 \\times 10^7 \\times 0.9 \\times 10^3 \\hat{k} ms^{-2} = 4.32 \\times 10^{12} \\hat{k} ms^{-2}$(0.5)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q20": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Identification": "Induced electric field due to changing magnetic field is easily observed.",
+      "Justification": "Induced electric field due to changing magnetic field can be easily produced by various ways like rotating/moving a coil in magnetic field, changing the shape of coil in magnetic field, bringing bar magnet near a coil etc."
+    },
+    "evaluation_criteria": [
+      "Identification) Induced electric field due to changing magnetic field is easily observed. (1)",
+      "Justification) Induced electric field due to changing magnetic field can be easily produced by various ways like rotating/moving a coil in magnetic field, changing the shape of coil in magnetic field, bringing bar magnet near a coil etc. (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q21_A": {
+    "type": "mixed",
+    "question_note": "Alternative to Q21_B",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Ray diagram": "Diagram showing incident wavefront AB, refracted wavefront CE, medium 1, medium 2, angle i, angle r, points P, P', A, B, E, C",
+      "Proof of Snell's law of refraction": [
+        "AB is incident wave front, incident at an angle i. Let $\\tau$ be time taken by the wave front to travel distance BC.",
+        "BC= $v_1 \\tau$ where $v_1$ is speed of wave in medium 1.",
+        "To determine shape of refracted wave front, we draw a sphere of radius $v_2 \\tau$, where $v_2$ is speed of wave in medium 2.",
+        "CE represents a tangent drawn from point C on sphere, CE is the refracted wave front.",
+        "$\\sin i = \\dfrac{BC}{AC} = \\dfrac{v_1 \\tau}{AC}$",
+        "$\\sin r = \\dfrac{AE}{AC} = \\dfrac{v_2 \\tau}{AC}$",
+        "$\\dfrac{\\sin i}{\\sin r} = \\dfrac{v_1}{v_2} = n_{21}$"
+      ]
+    },
+    "evaluation_criteria": [
+      "Ray diagram) Diagram showing incident wavefront AB, refracted wavefront CE, medium 1, medium 2, angle i, angle r, points P, P', A, B, E, C (1)",
+      "Proof of Snell's law of refraction) (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q21_B": {
+    "type": "text",
+    "question_note": "Alternative to Q21_A",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Reason for preferring reflecting type telescope over refracting telescope": [
+        "1. No Chromatic Aberration - No refraction in mirrors",
+        "2. No Spherical Aberration - Due to use of parabolic reflector",
+        "3. Easy mechanical support required - Mirrors weigh less and can be supported over entire back surface.",
+        "4. High resolving power - Due to Mirror with large diameter.",
+        "5. Brighter image – Large mirrors gather more light waves."
+      ]
+    },
+    "evaluation_criteria": [
+      "Reason for preferring reflecting type telescope over refracting telescope) (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q22": {
+    "type": "equation",
+    "question_note": "",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "ratio_formula": "$I_{max}/I_{min} = (\\sqrt{I_1} + \\sqrt{I_2})^2 / (\\sqrt{I_1} - \\sqrt{I_2})^2$",
+      "alternative_ratio_formula": "$I_{max}/I_{min} = (a+b)^2 / (a-b)^2$",
+      "calc_step_1": "Assuming $I_1=4I$, $I_2=I$:",
+      "calc_step_2": "$= (\\sqrt{4I} + \\sqrt{I})^2 / (\\sqrt{4I} - \\sqrt{I})^2 = (2\\sqrt{I} + \\sqrt{I})^2 / (2\\sqrt{I} - \\sqrt{I})^2$",
+      "calc_step_3": "$= (3\\sqrt{I})^2 / (\\sqrt{I})^2 = 9I / I = 9/1$"
+    },
+    "evaluation_criteria": [
+      "ratio_formula) $I_{max}/I_{min} = (\\sqrt{I_1} + \\sqrt{I_2})^2 / (\\sqrt{I_1} - \\sqrt{I_2})^2$ (0.5)",
+      "alternative_ratio_formula) $I_{max}/I_{min} = (a+b)^2 / (a-b)^2$ (0.5)",
+      "calc_step_1) Assuming $I_1=4I$, $I_2=I$ (0.5)",
+      "calc_step_2) (0.5)",
+      "calc_step_3) (0.5)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q23": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Total Energy_formula": "$E_n = -13.6/n^2 \\text{ eV}$",
+      "Energy_for_n=4": "For third excited state n=4, $E_4 = -0.85 \\text{ eV}$",
+      "Potential_Energy_calc": "Potential Energy = -1.70 \\text{ eV}$",
+      "Kinetic_Energy_calc": "Kinetic energy = 0.85 \\text{ eV}$"
+    },
+    "evaluation_criteria": [
+      "Total Energy_formula (0.5)",
+      "Energy_for_n=4 (0.5)",
+      "Potential_Energy_calc (0.5)",
+      "Kinetic_Energy_calc (0.5)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q24_A": {
+    "type": "table",
+    "question_note": "Alternative to Q24_B",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": "Difference between intrinsic and extrinsic semiconductor",
+    "expected_table": {
+      "heading": [
+        "Intrinsic semiconductor",
+        "Extrinsic semiconductor"
+      ],
+      "rows": [
+        [
+          "1. Pure semiconductor.",
+          "Semiconductor is Doped with impurities."
+        ],
+        [
+          "2. Low conductivity at room temperature.",
+          "High conductivity at room temperature."
+        ],
+        [
+          "3. $n_e=n_h$",
+          "$n_e \\ne n_h$"
+        ]
+      ]
+    },
+    "evaluation_criteria": [
+      "Difference between intrinsic and extrinsic semiconductor (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q24_B": {
+    "type": "diagram",
+    "question_note": "Alternative to Q24_A",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Circuit diagram for forward and reverse biased p-n junction diode": "Diagrams for forward bias and reverse bias.",
+      "V-I characteristic (Forward and Reverse bias)": "Graph showing V-I characteristics of silicon Diode."
+    },
+    "evaluation_criteria": [
+      "Circuit diagram (1)",
+      "V-I characteristic graph (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q25": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 2,
+    "correct_option": "",
+    "expected_answer": {
+      "Formation of potential barrier": [
+        "Diffusion current forms space charge region. Electric field generated. Potential at which diffusion current equals drift current is potential barrier."
+      ]
+    },
+    "evaluation_criteria": [
+      "Formation of potential barrier (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q26": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "a": {
+        "Finding electric potential at the centre": {
+          "formula": "$V = \\dfrac{kq}{R}$",
+          "total_potential_expression": "$V = \\dfrac{-12q}{4\\pi \\epsilon_0 R}$"
+        },
+        "Finding electric field at the centre": "By symmetry, electric field is zero."
+      },
+      "b": {
+        "Finding electric potential at the centre (after re-arrangement)": "Potential is scalar, remains same."
+      }
+    },
+    "evaluation_criteria": [
+      "a) Potential Calculation (1)",
+      "a) Electric Field Symmetry (1)",
+      "b) Potential rearrangement (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q27_A": {
+    "type": "text",
+    "question_note": "Alternative to Q27_B",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "Difference between resistance and impedance": [
+        "1. Material vs Frequency/Component opposition."
+      ],
+      "Obtaining expression for impedance": [
+        "$Z = \\sqrt{R^2 + (X_C - X_L)^2}$"
+      ]
+    },
+    "evaluation_criteria": [
+      "Difference (2)",
+      "Expression (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q27_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q27_A",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "Finding condition for resonance": [
+        "$X_L = X_C$"
+      ],
+      "Alternatively_condition": "$\\omega_r = 1/(\\sqrt{LC})$",
+      "Factors affecting resonant frequency": "L and C values.",
+      "Graph": "Peak at $\\omega_0$"
+    },
+    "evaluation_criteria": [
+      "Condition (1)",
+      "Factors (1)",
+      "Graph (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q28": {
+    "type": "text",
+    "question_note": "",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "a": {
+        "Induced_emf": "$e = -\\mu_0 \\pi r^2 n N \\dfrac{dI}{dt}$"
+      },
+      "b": {
+        "Mutual_inductance": "$M = \\mu_0 \\pi r^2 n N$"
+      }
+    },
+    "evaluation_criteria": [
+      "a) EMF derivation (2)",
+      "b) Mutual inductance formula (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q29": {
+    "type": "mixed",
+    "question_note": "",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "Explanation_of_emission_of_electron": [
+        "$K_{max} = h\\nu - \\Phi_0$"
+      ],
+      "a": "Photocurrent vs Potential graph.",
+      "b": "Photocurrent vs Intensity graph."
+    },
+    "evaluation_criteria": [
+      "Einstein explanation (1)",
+      "Graph a (1)",
+      "Graph b (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q30_A": {
+    "type": "diagram",
+    "question_note": "Alternative to Q30_B",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "Energy level diagram for hydrogen atom": "n=1 to n=5 levels.",
+      "Transitions": "Lyman (UV), Balmer (Visible), Paschen/Brackett (IR)."
+    },
+    "evaluation_criteria": [
+      "Diagram (2)",
+      "Transitions (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q30_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q30_A",
+    "allocated_marks": 3,
+    "correct_option": "",
+    "expected_answer": {
+      "Diagram_variation_binding_energy": "BE per nucleon vs A graph.",
+      "Two_features_of_diagram": [
+        "Independence for middle mass, lower for extremes."
+      ],
+      "Reason_for_nuclear_fusion": [
+        "To attain stability/higher BE."
+      ]
+    },
+    "evaluation_criteria": [
+      "Diagram (1)",
+      "Features (1)",
+      "Fusion reason (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q31_A": {
+    "type": "text",
+    "question_note": "Alternative to Q31_B",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Coulomb's Law statement and vector form.",
+      "ii": "Gauss's law derivation explanation.",
+      "iii": "Force vector calculation between A and B."
+    },
+    "evaluation_criteria": [
+      "i) Statement/Vector (2)",
+      "ii) Gauss explanation (1)",
+      "iii) Force Calc (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q31_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q31_A",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Dipole axial field derivation.",
+      "ii": "Effect of halving distance (8 times).",
+      "iii": "Electric field at center of square."
+    },
+    "evaluation_criteria": [
+      "i) Derivation (2)",
+      "ii) Distance effect (1)",
+      "iii) Square center E-field (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q32_A": {
+    "type": "mixed",
+    "question_note": "Alternative to Q32_B",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Biot-Savart Law and circular loop center field.",
+      "ii": "Current by revolving electron calculation."
+    },
+    "evaluation_criteria": [
+      "i) Law and Center Field (2)",
+      "ii) electron current (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q32_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q32_A",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Force on conductor derivation and Fleming's rule.",
+      "ii": "Force between parallel wires calculation."
+    },
+    "evaluation_criteria": [
+      "i) Derivation and Rule (2)",
+      "ii) Parallel wires force (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q33_A": {
+    "type": "text",
+    "question_note": "Alternative to Q33_B",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Difference interference vs diffraction and YDSE factors.",
+      "ii": "Angular separation and maxima distance calculation."
+    },
+    "evaluation_criteria": [
+      "i) Difference and Factors (2)",
+      "ii) Calculations (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q33_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q33_A",
+    "allocated_marks": 4,
+    "correct_option": "",
+    "expected_answer": {
+      "i": "Spherical surface refraction formula u,v,R relation.",
+      "ii": "Apparent position calculation."
+    },
+    "evaluation_criteria": [
+      "i) Relation derivation (2)",
+      "ii) Position calc (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q34_A": {
+    "type": "mixed",
+    "question_note": "Alternative to Q34_B",
+    "allocated_marks": 5,
+    "correct_option": "",
+    "expected_answer": {
+      "a": "Equipotential points.",
+      "b": "Current through arm calculation.",
+      "c": "Power and PD calculation."
+    },
+    "evaluation_criteria": [
+      "a) Points (2)",
+      "b) Current (1)",
+      "c) PD (1)",
+      "Power (1)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q34_B": {
+    "type": "mixed",
+    "question_note": "Alternative to Q34_A",
+    "allocated_marks": 5,
+    "correct_option": "",
+    "expected_answer": {
+      "a": "TIR through prism tracing.",
+      "b": "Velocity of light calculation.",
+      "c": "Applications and conditions of TIR."
+    },
+    "evaluation_criteria": [
+      "a) Tracing (2)",
+      "b) Velocity (1)",
+      "c) Applications/Conditions (2)"
+    ],
+    "criteria_status": "defined"
+  },
+  "Q35": {
+    "type": "mixed",
+    "question_note": "Internal choices.",
+    "allocated_marks": 5,
+    "correct_option": "",
+    "expected_answer": "Same as Q34_B alternatives.",
+    "evaluation_criteria": [
+      "Full marks for any option (5)"
+    ],
+    "criteria_status": "defined"
+  }
+}
