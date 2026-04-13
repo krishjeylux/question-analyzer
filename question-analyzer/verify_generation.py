@@ -19,7 +19,11 @@ async def verify():
     print("\n--- Generation Success ---")
     print(f"Rephrased Question: {res.rephrased_question}")
     print("\nMarking Scheme Generated:")
-    print(json.dumps(res.marking_scheme.model_dump(), indent=2))
+    marking_scheme_json = json.dumps(res.marking_scheme.model_dump(), indent=2)
+    print(marking_scheme_json)
+    
+    with open("sample_output.json", "w", encoding="utf-8") as f:
+        f.write(marking_scheme_json)
 
 if __name__ == "__main__":
     asyncio.run(verify())

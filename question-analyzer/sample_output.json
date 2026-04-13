@@ -1,0 +1,17 @@
+{
+  "type": "text",
+  "question_note": "Consider the resistance of each semicircle and how they are connected",
+  "allocated_marks": 2.0,
+  "correct_option": "",
+  "expected_answer": {
+    "Formula": "$\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2}$",
+    "Calculation": "$R_{total} = 2R$"
+  },
+  "evaluation_criteria": [
+    "Formula) $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2}$ (0.5)",
+    "Calculation) $R_{total} = 2R$ (1.5)"
+  ],
+  "criteria_status": "defined",
+  "reference_diagrams": null,
+  "expected_table": null
+}

@@ -47,21 +47,29 @@ class QuestionGeneratorService:
         
         [INSTRUCTIONS]
         Output ONLY a JSON object that strictly follows this JSON schema. The "reasoning" key MUST come first so you can think step-by-step before finalizing the answer.
-        CRITICAL: Since your output must be valid JSON, ensure ALL backslashes in math formulas or LaTeX (like \lambda, \frac) are double-escaped (e.g., \\lambda, \\frac) to prevent JSON parse errors.
-        CRITICAL: You MUST double-check your arithmetic! You frequently fail at decimal math. Always convert decimals to fractions for calculations (e.g., 0.05 / 0.2 = 5 / 20 = 1/4 = 0.25) in your reasoning scratchpad to prevent mental math hallucinations.
+        
+        CRITICAL FORMATTING RULES:
+        1. Use LaTeX for ALL mathematical formulas, units, and calculations, wrapped in single dollar signs (e.g., $F = ma$, $ms^{-2}$).
+        2. In the "expected_answer" dictionary, break down the solution into logical steps. Use descriptive keys like "Formula", "Calculation", "Final_Result", or specific names like "Force_formula", "Acceleration_calculation".
+        3. The "evaluation_criteria" MUST be a list of strings following this EXACT format: "KeyName) LaTeX_Content (Marks)". "KeyName" must correspond to a key in your "expected_answer" dictionary.
+        4. CRITICAL: Since your output must be valid JSON, ensure ALL backslashes in math formulas or LaTeX (like \lambda, \frac) are double-escaped (e.g., \\lambda, \\frac) to prevent JSON parse errors.
+        5. You MUST double-check your arithmetic! Always convert decimals to fractions for calculations in your reasoning scratchpad.
+        
         {{
             "rephrased_question": "String containing the clear, rephrased version of the question.",
-            "reasoning": "Think step-by-step. Analyze the physics involved, explicitly write down formulas, and double-check numerical math (e.g., convert decimals to fractions to avoid division errors). Show all scratchpad calculations here.",
+            "reasoning": "Think step-by-step. Analyze the physics involved, explicitly write down formulas, and double-check numerical math.",
             "marking_scheme": {{
-                "type": "Must be one of: text, equation, numeric, mixed, table, diagram",
+                "type": "text",
                 "question_note": "Any notes or alternatives",
                 "allocated_marks": float,
-                "correct_option": "If it is an MCQ, string representing the correct option (e.g. 'A', 'B'), else null",
-                "expected_answer": "String, dict, or list representation of the final expected numerical answer. Ensure it strictly matches the conclusion of your reasoning step.",
+                "correct_option": "If it is an MCQ, string representing the correct option (e.g. 'A', 'B'), else empty string",
+                "expected_answer": {{
+                    "Step1_Name": "$LaTeX_Formula_or_Step$",
+                    "Step2_Name": "$LaTeX_Calculation$"
+                }},
                 "evaluation_criteria": [
-                    "List of strings, each showing the step and marks like: 'Formula for Force (0.5)'.",
-                    "CRITICAL: For numerical questions, you MUST include explicit steps showing the substitution of numerical values into the formulas before the final answer.",
-                    "List should add up to allocated_marks"
+                    "Step1_Name) $LaTeX_Formula_or_Step$ (Marks)",
+                    "Step2_Name) $LaTeX_Calculation$ (Marks)"
                 ],
                 "criteria_status": "defined"
             }}
