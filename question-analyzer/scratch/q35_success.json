@@ -1,0 +1,29 @@
+{
+  "original_question": "Strontium titanate is a rare oxide \u2014 a natural mineral found in Siberia.\nIt is used as a substitute for diamond because its refractive index and\ncritical angle are 2-41 and 24-5\u00b0, respectively, which are approximately\nequal to the refractive index and critical angle of diamond. It has all the\nproperties of diamond. Even an expert jeweller is unable to differentiate\nbetween diamond and strontium titanate. A ray of light is incident\nnormally on one face of an equilateral triangular prism ABC made of\n\nstrontium titanate.\n\nA\nL\\\n\nAnswer the following questions based on the above :\n\n(a) Trace the path of the ray showing its passage through the prism.\n(b) Find the velocity of light through the prism.\n\n(c) Briefly explain two applications of total internal reflection.\n\nOR\n\n(c) Define total internal reflection of light. Give two conditions for it.",
+  "rephrased_question": "A ray of light is incident normally on one face of an equilateral triangular prism ABC made of strontium titanate, a substitute for diamond with a refractive index of 2.41 and a critical angle of 24.5\u00b0. Answer the following questions:\\n\\n(a) Trace the path of the ray showing its passage through the prism.\\n(b) Find the velocity of light through the prism.\\n(c) Briefly explain two applications of total internal reflection.\\n\\nOR\\n\\n(c) Define total internal reflection of light. Give two conditions for it.",
+  "reasoning": "Let's break down this optics problem step by step.\\n\\n(a) Path of the ray through the prism:\\nSince the ray is incident normally on the first face AB of the equilateral prism, there is no refraction at this surface. The angle of incidence at the second face AC is equal to the angle of the prism, which is 60\u00b0. The critical angle is given as 24.5\u00b0. Since the angle of incidence (60\u00b0) is greater than the critical angle (24.5\u00b0), total internal reflection (TIR) will occur at the second face AC. The ray will then be reflected internally and strike the third face BC. The angle of incidence at the third face will be 60\u00b0 (due to the geometry of equilateral triangle and reflection angle). Again, since 60\u00b0 > 24.5\u00b0, TIR will occur at the third face BC. The ray will emerge from the prism after two total internal reflections.\\n\\n(b) Velocity of light through the prism:\\nThe refractive index (n) is given by the ratio of the speed of light in vacuum (c) to the speed of light in the medium (v): n = c/v. We are given n = 2.41 for strontium titanate. The speed of light in vacuum is approximately c = 3.0 x 10^8 m/s. Therefore, v = c/n = (3.0 x 10^8 m/s) / 2.41.\\n\\n(c) [Choice 1] Applications of total internal reflection:\\nTwo applications of total internal reflection are:\\n1.  Optical fibers: Used for transmitting audio and video signals over long distances.\\n2.  Prisms: Used in binoculars and periscopes to bend light by 90\u00b0 or 180\u00b0 and to invert images.\\n\\n(c) [Choice 2] Definition and conditions for total internal reflection:\\nTotal Internal Reflection (TIR) is the phenomenon where a light ray traveling from a denser medium to a rarer medium is completely reflected back into the denser medium when the angle of incidence exceeds the critical angle.\\nConditions for TIR:\\n1.  Light must travel from a denser medium to a rarer medium.\\n2.  The angle of incidence must be greater than the critical angle.",
+  "marking_scheme": {
+    "type": "mixed",
+    "question_note": "This question tests understanding of refraction, total internal reflection, and refractive index. Part (a) requires a diagrammatic representation. Part (b) is a straightforward calculation. Part (c) offers a choice between applications and conditions for TIR.",
+    "allocated_marks": 5.0,
+    "correct_option": "",
+    "expected_answer": {
+      "Part (a)": "Ray enters normally, undergoes TIR at the second face, then TIR again at the third face, and finally emerges after two internal reflections.",
+      "Part (b)": "v = c/n = (3.0 x 10^8 m/s) / 2.41 = 1.24 x 10^8 m/s",
+      "Part (c) [Choice 1]": "1. Optical fibers: Used for transmitting audio and video signals over long distances. 2. Prisms: Used in binoculars and periscopes to bend light by 90\u00b0 or 180\u00b0 and to invert images.",
+      "Part (c) [Choice 2]": "Total Internal Reflection (TIR) is the phenomenon where a light ray traveling from a denser medium to a rarer medium is completely reflected back into the denser medium when the angle of incidence exceeds the critical angle. Conditions for TIR: 1. Light must travel from a denser medium to a rarer medium. 2. The angle of incidence must be greater than the critical angle.",
+      "Final_Result": "See individual parts."
+    },
+    "evaluation_criteria": [
+      "CRITICAL: This MUST be a flat list of strings. DO NOT nest dictionaries here.",
+      "Part (a): Correctly tracing the path of the ray through the prism, showing two total internal reflections. (2 Marks)",
+      "Part (b): Correctly calculating the velocity of light in the prism using the refractive index. (1 Mark)",
+      "Part (c) [Choice 1]: Providing two correct applications of total internal reflection. (2 Marks)",
+      "--- OR ---",
+      "Part (c) [Choice 2]: Defining total internal reflection and stating two correct conditions for it. (2 Marks)"
+    ],
+    "criteria_status": "defined",
+    "reference_diagrams": null,
+    "expected_table": null
+  }
+}

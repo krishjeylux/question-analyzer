@@ -15,3 +15,10 @@ class QuestionGenerationRequest(BaseModel):
     question_text: str
     subject: str = "Grade 12 CBSE Physics"
     total_marks: Optional[int] = None
+
+
+class PaperGenerationRequest(BaseModel):
+    """Request to generate marking schemes from a server-side PDF file path."""
+    paper_path: str                           # Absolute path to the PDF file
+    answer_key_path: Optional[str] = None     # Path to optional answer key PDF
+    subject: str = "Grade 12 CBSE Physics"   # Subject label for prompting

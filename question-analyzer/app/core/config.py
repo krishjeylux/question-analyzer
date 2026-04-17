@@ -5,7 +5,15 @@ import os
 class Settings(BaseSettings):
     APP_NAME: str = "Question Analyzer"
     GROK_API_KEY: str
+    GEMINI_API_KEY: str
     LOG_LEVEL: str = "INFO"
+    
+    # Google Cloud configuration
+    GOOGLE_APPLICATION_CREDENTIALS: Optional[str] = None
+    
+    # OCR Tool paths
+    TESSERACT_CMD: Optional[str] = None
+    POPPLER_PATH: Optional[str] = None
     
     # Qdrant configuration
     QDRANT_API_KEY: Optional[str] = None

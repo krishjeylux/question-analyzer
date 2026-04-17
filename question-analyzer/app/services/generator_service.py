@@ -1,43 +1,49 @@
 import json
-from openai import AsyncOpenAI
+import asyncio
+from typing import Optional
+import google.generativeai as genai
 from app.core.config import settings
 from app.models.domain_models import GeneratedQuestionResult, MarkingSchemeItem
 from app.retrieval.qdrant_service import QdrantService
 
 class QuestionGeneratorService:
     def __init__(self):
-        self.client = AsyncOpenAI(
-            api_key=settings.GROK_API_KEY,
-            base_url="https://api.groq.com/openai/v1"
-        )
+        # Configure Gemini
+        genai.configure(api_key=settings.GEMINI_API_KEY)
+        self.model = genai.GenerativeModel("gemini-2.0-flash")
         self.qdrant = QdrantService()
         
-    async def generate_key(self, question_text: str, subject: str, total_marks: int = None) -> GeneratedQuestionResult:
+    async def generate_key(self, question_text: str, subject: str, total_marks: int = None, official_answer: Optional[str] = None) -> GeneratedQuestionResult:
         marks_str = f"The question is worth {total_marks} marks." if total_marks else "Assign appropriate marks based on the complexity."
         
-        # 1. Retrieve RAG Context
-        retrieved_docs = self.qdrant.search_similar(question_text, top_k=3)
+        override_instruction = ""
+        if official_answer:
+            override_instruction = f"\nCRITICAL OVERRIDE: The official correct answer for this question is: '{official_answer}'. Your reasoning MUST lead directly to this answer. Do NOT contradict the official answer."
+
+        # 1. Retrieve RAG Context (Increased top_k for better coverage)
+        retrieved_docs = self.qdrant.search_similar(question_text, top_k=10)
         
         context_str = "No relevant context found in textbook corpus."
         if retrieved_docs:
             context_blocks = []
-            print(f"\n--- [RAG RETRIEVAL SUCCESS] Found {len(retrieved_docs)} textbook paragraphs! ---")
             for doc in retrieved_docs:
                 block = f"[Source: {doc['source']}, Page: {doc['page']}]\n{doc['content']}"
                 context_blocks.append(block)
-                print(f"\nRetrieved from {doc['source']} (Page {doc['page']}):\n{doc['content'][:150]}...")
-            print("------------------------------------------------------\n")
             context_str = "\n\n".join(context_blocks)
 
         prompt = f"""
-        You are an expert teacher setting a {subject} paper.
+        You are an expert {subject} teacher and examiner. Your goal is to provide a 100% accurate, textbook-aligned answer key and marking scheme.
         
-        I have a raw question input. I want you to:
-        1. Understand the question text.
-        2. Rephrase the question to be perfectly clear and academically sound for {subject}, while keeping the EXACT meaning.
-        3. Solve the question and generate a comprehensive marking scheme for it.
-        4. CRITICAL: Base your physics formulas and reasoning STRICTLY on the Verified Ground Truth Context provided below. Do not hallucinate physics concepts outside of typical CBSE framework.
+        [TASKS]
+        1. Parse and understand the [RAW INPUT QUESTION].
+        2. Rephrase the question for maximum clarity while keeping the EXACT academic meaning.
+        3. Solve the question step-by-step.
+        4. CRITICAL: For physical constants (like ε₀, μ₀, e, h, c) or specific formulas, refer ONLY to the [VERIFIED GROUND TRUTH CONTEXT] below. If the context is missing a specific constant, use standard CBSE values but document it in your reasoning.
+        5. For MCQs, you MUST evaluate each option. If the [RAW INPUT QUESTION] has corrupted option text (due to OCR), reconstruct the intended options based on your physics calculation and pick the most appropriate letter (A, B, C, or D).
+        6. CRITICAL: Maintain a scientific "Fact-Check" layer. If the RAG context is silent on a basic property (e.g., whether a material is diamagnetic), use verified scientific knowledge rather than guessing.
+        
         {marks_str}
+        {override_instruction}
         
         [VERIFIED GROUND TRUTH CONTEXT FROM TEXTBOOK]
         {context_str}
@@ -45,49 +51,96 @@ class QuestionGeneratorService:
         [RAW INPUT QUESTION]
         {question_text}
         
-        [INSTRUCTIONS]
-        Output ONLY a JSON object that strictly follows this JSON schema. The "reasoning" key MUST come first so you can think step-by-step before finalizing the answer.
+        [INSTRUCTIONS FOR YOUR REASONING SCRATCHPAD]
+        - First, identify the core physics concept.
+        - List the knowns and unknowns.
+        - Explicitly write down the formulas to be used.
+        - Perform all calculations with high precision. Show unit conversions (e.g., cm to m).
+        - DOUBLE-CHECK your math. If it's a numerical, solve it twice to verify.
+        - For MCQs, explicitly state why the correct option is right and others are wrong.
+        - MAPPING CHECK: Look at the raw OCR options. OCR often Misreads: '8' as 'ri', '4' as 'A', '2' as 'r', '1' as 'l' or 'i', '0' as 'o' or 'O', 'ε' as 'E'. If your calculated answer is 'F/8' and an option is 'ri', pick that option.
+        - OPTICS GUARDRAIL: For a concave mirror, if the object is at the Center of Curvature (u=2f), the real image also forms at 2f. In this case, the distance BETWEEN the object and its image is ZERO. Do NOT mistake this for 4f (which is for lenses).
         
-        CRITICAL FORMATTING RULES:
-        1. Use LaTeX for ALL mathematical formulas, units, and calculations, wrapped in single dollar signs (e.g., $F = ma$, $ms^{-2}$).
-        2. In the "expected_answer" dictionary, break down the solution into logical steps. Use descriptive keys like "Formula", "Calculation", "Final_Result", or specific names like "Force_formula", "Acceleration_calculation".
-        3. The "evaluation_criteria" MUST be a list of strings following this EXACT format: "KeyName) LaTeX_Content (Marks)". "KeyName" must correspond to a key in your "expected_answer" dictionary.
-        4. CRITICAL: Since your output must be valid JSON, ensure ALL backslashes in math formulas or LaTeX (like \lambda, \frac) are double-escaped (e.g., \\lambda, \\frac) to prevent JSON parse errors.
-        5. You MUST double-check your arithmetic! Always convert decimals to fractions for calculations in your reasoning scratchpad.
+        [OUTPUT FORMAT]
+        Output ONLY a JSON object. Ensure ALL LaTeX backslashes are double-escaped (e.g., \\\\frac, \\\\lambda).
         
         {{
-            "rephrased_question": "String containing the clear, rephrased version of the question.",
-            "reasoning": "Think step-by-step. Analyze the physics involved, explicitly write down formulas, and double-check numerical math.",
+            "rephrased_question": "Full rephrased question, keeping all sub-parts (a, b, i, ii) intact.",
+            "reasoning": "Detailed step-by-step physics analysis for ALL sub-parts, knowns/unknowns, formula selection, and math verification.",
             "marking_scheme": {{
-                "type": "text",
-                "question_note": "Any notes or alternatives",
+                "type": "text | equation | numeric | mixed | table | diagram | mcq",
+                "question_note": "Mention specific constants used or assumptions made. If there are multiple parts, summarize the overall difficulty.",
                 "allocated_marks": float,
-                "correct_option": "If it is an MCQ, string representing the correct option (e.g. 'A', 'B'), else empty string",
+                "correct_option": "A/B/C/D if MCQ, else empty",
                 "expected_answer": {{
-                    "Step1_Name": "$LaTeX_Formula_or_Step$",
-                    "Step2_Name": "$LaTeX_Calculation$"
+                    "Part (a) / (i)": "$...$",
+                    "Part (b) / (ii)": "$...$",
+                    "Part (c) [Choice 1] (if applicable)": "$...$",
+                    "Part (c) [Choice 2] (if applicable)": "$...$",
+                    "Final_Result": "$...$"
                 }},
                 "evaluation_criteria": [
-                    "Step1_Name) $LaTeX_Formula_or_Step$ (Marks)",
-                    "Step2_Name) $LaTeX_Calculation$ (Marks)"
+                    "CRITICAL: This MUST be a flat list of strings. DO NOT nest dictionaries here.",
+                    "Part (a): ... (Marks)",
+                    "Part (b): ... (Marks)",
+                    "Part (c) [Choice 1]: ... (Marks)",
+                    "--- OR ---",
+                    "Part (c) [Choice 2]: ... (Marks)"
                 ],
                 "criteria_status": "defined"
             }}
         }}
-
+        [ASSERTION-REASON RULES]
+        If the question is an "Assertion (A) - Reason (R)" type, you MUST use these standard options:
+        (A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).
+        (B) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A). (Use this if R is a true statement but not the causal reason for A).
+        (C) Assertion (A) is true but Reason (R) is false.
+        (D) Assertion (A) is false and Reason (R) is false. (Use this if both statements are fundamentally scientifically incorrect).
+        
+        [REASONING COMPLIANCE CHECK]
+        Before generating the final JSON, perform a MENTAL CHECK:
+        - Does your `correct_option` match your math result?
+        - Is your LaTeX perfectly escaped with DOUBLE backslashes (\\\\)?
+        - For MCQs, is the selected option the best one based on the context?
+        
+        Return ONLY the JSON object.
         """
 
         try:
-            response = await self.client.chat.completions.create(
-                model="llama-3.3-70b-versatile", 
-                messages=[
-                    {"role": "system", "content": "You are a backend JSON output generator. You must analyze the physics carefully in the reasoning block before producing JSON. Output only valid JSON."},
-                    {"role": "user", "content": prompt}
-                ],
-                response_format={"type": "json_object"}
+            # Gemini generation (synchronous SDK call, wrap in executor if needed for high load)
+            # For this context, we'll run it directly as it's an async method
+            loop = asyncio.get_event_loop()
+            response = await loop.run_in_executor(
+                None, 
+                lambda: self.model.generate_content(
+                    prompt,
+                    generation_config={
+                        "temperature": 0.1,
+                        "response_mime_type": "application/json",
+                    },
+                    request_options={"timeout": 120}
+                )
             )
             
-            result_data = json.loads(response.choices[0].message.content)
+            raw_text = response.text.strip()
+            
+            # Robust JSON parsing
+            if "```json" in raw_text:
+                raw_text = raw_text.split("```json")[1].split("```")[0].strip()
+            elif "```" in raw_text:
+                raw_text = raw_text.split("```")[1].split("```")[0].strip()
+
+            cleaned_text = self._clean_json_string(raw_text)
+            try:
+                result_data = json.loads(cleaned_text, strict=False)
+            except json.JSONDecodeError as je:
+                print(f"[Generator] JSON Decode Error: {je}")
+                # Save to file for inspection
+                with open("scratch/last_error_raw.txt", "w", encoding="utf-8") as f:
+                    f.write(raw_text)
+                with open("scratch/last_error_cleaned.txt", "w", encoding="utf-8") as f:
+                    f.write(cleaned_text)
+                raise je
             
             marking_item = MarkingSchemeItem(**result_data["marking_scheme"])
             
@@ -97,7 +150,28 @@ class QuestionGeneratorService:
                 reasoning=result_data["reasoning"],
                 marking_scheme=marking_item
             )
-
             
         except Exception as e:
-            raise Exception(f"Failed to generate key using LLM: {str(e)}")
+            raise Exception(f"Failed to generate key using Gemini: {str(e)}")
+
+    def _clean_json_string(self, s: str) -> str:
+        """
+        Attempts to fix common LLM-generated JSON errors.
+        """
+        import re
+        # 1. Double backslashes that are NOT preceded by a backslash AND NOT followed by a backslash or quote
+        # This handles LaTeX like \lambda -> \\lambda
+        s = re.sub(r'(?<!\\)\\(?![\\"])', r'\\\\', s)
+        
+        # 2. Fix literal newlines: if a string value contains a raw newline, escape it to \n
+        # We only apply this to content between quotes. This is a heuristic.
+        def replace_newline(match):
+            return match.group(0).replace('\n', '\\n').replace('\r', '\\n')
+        
+        # Match "key": "value" where value has line breaks
+        s = re.sub(r'":\s*"[^"]*?"', replace_newline, s, flags=re.DOTALL)
+        
+        # 3. Remove literal control characters (except \n, \r, \t)
+        s = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', s)
+        
+        return s

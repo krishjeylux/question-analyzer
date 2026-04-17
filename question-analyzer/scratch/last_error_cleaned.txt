@@ -1,0 +1,25 @@
+{
+    "rephrased_question": "A ray of light is incident normally on one face of an equilateral triangular prism ABC made of strontium titanate, a material with a refractive index of 2.41 and a critical angle of 24.5°. Answer the following questions:\\n\\n(a) Trace the path of the ray showing its passage through the prism.\\n(b) Find the velocity of light through the prism.\\n(c) Briefly explain two applications of total internal reflection.\\n\\nOR\\n\\n(c) Define total internal reflection of light. Give two conditions for it.",
+    "reasoning": "Let's break down this question step by step.\\n\\n(a) Path of the ray through the prism:\\nSince the ray is incident normally on one face of the equilateral prism, it will pass straight through that face without any deviation. The angle of incidence at the second face will be equal to the angle of the prism, which is 60° (since it's an equilateral triangle). The critical angle is 24.5°. Since the angle of incidence (60°) is greater than the critical angle (24.5°), total internal reflection (TIR) will occur at the second face. The ray will then reflect at an angle of 60° with respect to the normal. This reflected ray will then strike the third face normally, and emerge without deviation.\\n\\n(b) Velocity of light through the prism:\\nThe refractive index (n) is given as 2.41. We know that n = c/v, where c is the speed of light in vacuum (approximately 3.0 x 10^8 m/s) and v is the speed of light in the medium (strontium titanate). Therefore, v = c/n.\\n\\n(c) Applications of total internal reflection OR Definition and conditions:\\n*   Applications: Optical fibers (used in communication) and prisms (used in binoculars and periscopes).\\n*   Definition: Total internal reflection is the phenomenon where a light ray traveling from a denser medium to a rarer medium is completely reflected back into the denser medium when the angle of incidence exceeds the critical angle.\\n*   Conditions: (i) Light must travel from a denser to a rarer medium. (ii) The angle of incidence must be greater than the critical angle.",
+    "marking_scheme": {
+        "type": "mixed",
+        "question_note": "This question tests understanding of refraction, total internal reflection, and related concepts. Part (a) requires a diagrammatic representation, part (b) is a numerical calculation, and part (c) requires definitions and explanations.",
+        "allocated_marks": 5.0,
+        "correct_option": "",
+        "expected_answer": {
+            "Part (a)": "The ray enters the first face without deviation, undergoes total internal reflection at the second face, and exits the third face without deviation.",
+            "Part (b)": "v = c/n = (3.0 x 10^8 m/s) / 2.41 = 1.24 x 10^8 m/s",
+            "Part (c) - Applications": "Optical fibers and reflecting prisms.",
+            "Part (c) - Definition": "Total internal reflection is the complete reflection of a light ray back into the original medium when the angle of incidence exceeds the critical angle.",
+            "Part (c) - Conditions": "(i) Light travels from a denser to a rarer medium. (ii) Angle of incidence > critical angle."
+        },
+        "evaluation_criteria": [
+            "Part (a): Correctly tracing the path of the ray through the prism, showing total internal reflection. (1.5 Marks)",
+            "Part (b): Correctly calculating the velocity of light in the prism. (1.5 Marks)",
+            "Part (c) - Applications": "Providing two correct applications of total internal reflection. (2 Marks)",
+            "Part (c) - Definition": "Correct definition of total internal reflection. (1 Mark)",
+            "Part (c) - Conditions": "Providing two correct conditions for total internal reflection. (1 Mark)"
+        ],
+        "criteria_status": "defined"
+    }
+}

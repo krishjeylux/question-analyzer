@@ -1,0 +1,12 @@
+=== Q33_A SUCCESS ===
+In Young's double-slit experiment, the separation between the two slits is equal to 100 times the wavelength of the light used. Calculate:\n(1) The angular separation (in radians) between the central maximum and the adjacent maximum.\n(2) The distance between these two maxima on a screen placed 50 c
+
+=== Q33_B SUCCESS ===
+(i) A spherical surface of radius of curvature R separates two media of refractive indices n₁ and n₂. A point object is placed in front of the surface at a distance u in the medium of refractive index n₁, and its image is formed by the surface at a distance v in the medium of refractive index n₂. De
+
+=== Q34 SUCCESS ===
+The circuit diagram provided includes a voltage source E = 60V and an internal resistance r = 1 Ohm. Analyze the circuit using Kirchhoff's rules to determine:\n(a) Which points in the circuit are at the same potential?\n(b) What is the current flowing through the arm 'bg'?\n(c) Calculate the potenti
+
+=== Q35 SUCCESS ===
+A ray of light is incident normally on one face of an equilateral triangular prism ABC made of strontium titanate, a substitute for diamond with a refractive index of 2.41 and a critical angle of 24.5°. Answer the following questions:\n\n(a) Trace the path of the ray showing its passage through the 
+
