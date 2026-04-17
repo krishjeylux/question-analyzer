@@ -13,7 +13,16 @@ class QuestionGeneratorService:
         self.model = genai.GenerativeModel("gemini-2.0-flash")
         self.qdrant = QdrantService()
         
-    async def generate_key(self, question_text: str, subject: str, total_marks: int = None, official_answer: Optional[str] = None) -> GeneratedQuestionResult:
+    async def generate_key(
+        self, 
+        question_text: str, 
+        subject: str, 
+        total_marks: int = None, 
+        official_answer: Optional[str] = None,
+        set_no: Optional[str] = None,
+        year: Optional[str] = None,
+        board: Optional[str] = None
+    ) -> GeneratedQuestionResult:
         marks_str = f"The question is worth {total_marks} marks." if total_marks else "Assign appropriate marks based on the complexity."
         
         override_instruction = ""
@@ -67,6 +76,13 @@ class QuestionGeneratorService:
         {{
             "rephrased_question": "Full rephrased question, keeping all sub-parts (a, b, i, ii) intact.",
             "reasoning": "Detailed step-by-step physics analysis for ALL sub-parts, knowns/unknowns, formula selection, and math verification.",
+            "difficulty_level": "Easy | Medium | Hard",
+            "blooms_level": "Remembering | Understanding | Applying | Analyzing | Evaluating | Creating",
+            "chapter": "Name of the Chapter",
+            "topic": "Name of the Topic",
+            "sub_topic": "Name of the Sub-topic",
+            "concepts_covered": ["Concept 1", "Concept 2"],
+            "concepts_covered_to_answer": ["Concept required 1", "Concept required 2"],
             "marking_scheme": {{
                 "type": "text | equation | numeric | mixed | table | diagram | mcq",
                 "question_note": "Mention specific constants used or assumptions made. If there are multiple parts, summarize the overall difficulty.",
@@ -146,8 +162,19 @@ class QuestionGeneratorService:
             
             return GeneratedQuestionResult(
                 original_question=question_text,
-                rephrased_question=result_data["rephrased_question"],
-                reasoning=result_data["reasoning"],
+                rephrased_question=result_data.get("rephrased_question", ""),
+                reasoning=result_data.get("reasoning", ""),
+                difficulty_level=result_data.get("difficulty_level"),
+                blooms_level=result_data.get("blooms_level"),
+                chapter=result_data.get("chapter"),
+                topic=result_data.get("topic"),
+                sub_topic=result_data.get("sub_topic"),
+                concepts_covered=result_data.get("concepts_covered"),
+                concepts_covered_to_answer=result_data.get("concepts_covered_to_answer"),
+                set_no=set_no,
+                year=year,
+                subject=subject,
+                board=board,
                 marking_scheme=marking_item
             )
             

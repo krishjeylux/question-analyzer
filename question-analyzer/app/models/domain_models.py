@@ -74,6 +74,17 @@ class GeneratedQuestionResult(BaseModel):
     original_question: str
     rephrased_question: str
     reasoning: str
+    difficulty_level: Optional[str] = None
+    blooms_level: Optional[str] = None
+    chapter: Optional[str] = None
+    topic: Optional[str] = None
+    sub_topic: Optional[str] = None
+    concepts_covered: Optional[List[str]] = None
+    concepts_covered_to_answer: Optional[List[str]] = None
+    set_no: Optional[str] = None
+    year: Optional[str] = None
+    subject: Optional[str] = None
+    board: Optional[str] = None
     marking_scheme: MarkingSchemeItem
 
 # For recursion support in alternative_results

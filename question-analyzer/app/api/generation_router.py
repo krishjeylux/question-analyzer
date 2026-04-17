@@ -33,7 +33,16 @@ answer_key_extractor = AnswerKeyExtractor()
 _SEMAPHORE = asyncio.Semaphore(5)
 
 
-async def _generate_single_safe(q_id: str, text: str, subject: str, marks: int, official_answer: str = None) -> tuple[str, Any]:
+async def _generate_single_safe(
+    q_id: str, 
+    text: str, 
+    subject: str, 
+    marks: int, 
+    official_answer: str = None,
+    set_no: str = None,
+    year: str = None,
+    board: str = None
+) -> tuple[str, Any]:
     """
     Generate a marking scheme for one question, rate-limited by the semaphore.
     Returns (q_id, result_or_error_dict).
@@ -44,7 +53,10 @@ async def _generate_single_safe(q_id: str, text: str, subject: str, marks: int, 
                 question_text=text,
                 subject=subject,
                 total_marks=marks,
-                official_answer=official_answer
+                official_answer=official_answer,
+                set_no=set_no,
+                year=year,
+                board=board
             )
             return q_id, result.model_dump()
         except Exception as e:
@@ -54,7 +66,10 @@ async def _generate_single_safe(q_id: str, text: str, subject: str, marks: int, 
 async def _run_paper_pipeline(
     pdf_bytes: bytes,
     subject: str,
-    answer_key_bytes: bytes = None
+    answer_key_bytes: bytes = None,
+    set_no: str = None,
+    year: str = None,
+    board: str = None
 ) -> PaperGenerationResult:
     """
     Core pipeline used by both upload and path-based endpoints.
@@ -90,7 +105,10 @@ async def _run_paper_pipeline(
             q["text"], 
             subject, 
             q["marks"], 
-            official_answer=official_mapping.get(q["id"])
+            official_answer=official_mapping.get(q["id"]),
+            set_no=set_no,
+            year=year,
+            board=board
         )
         for q in questions
     ]
@@ -129,7 +147,10 @@ async def generate_key(request: QuestionGenerationRequest):
         result = await generator_service.generate_key(
             question_text=request.question_text,
             subject=request.subject,
-            total_marks=request.total_marks
+            total_marks=request.total_marks,
+            set_no=request.set_no,
+            year=request.year,
+            board=request.board
         )
         return result
     except Exception as e:
@@ -144,7 +165,10 @@ async def generate_key(request: QuestionGenerationRequest):
 async def generate_from_paper_upload(
     file: UploadFile = File(..., description="Question paper PDF file"),
     answer_key: UploadFile = File(None, description="Optional official answer key PDF"),
-    subject: str = Form(default="Grade 12 CBSE Physics", description="Subject name")
+    subject: str = Form(default="Grade 12 CBSE Physics", description="Subject name"),
+    set_no: str = Form(default=None, description="Set number of the paper"),
+    year: str = Form(default=None, description="Year of the paper"),
+    board: str = Form(default=None, description="Board of the paper")
 ):
     """
     Upload a question paper PDF and an optional answer key.
@@ -167,7 +191,14 @@ async def generate_from_paper_upload(
         answer_key_bytes = await answer_key.read()
 
     try:
-        result = await _run_paper_pipeline(pdf_bytes, subject, answer_key_bytes)
+        result = await _run_paper_pipeline(
+            pdf_bytes, 
+            subject, 
+            answer_key_bytes,
+            set_no=set_no,
+            year=year,
+            board=board
+        )
         return result
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
@@ -214,7 +245,14 @@ async def generate_from_paper_path(request: PaperGenerationRequest):
                 with open(request.answer_key_path, "rb") as f:
                     answer_key_bytes = f.read()
 
-        result = await _run_paper_pipeline(pdf_bytes, request.subject, answer_key_bytes)
+        result = await _run_paper_pipeline(
+            pdf_bytes, 
+            request.subject, 
+            answer_key_bytes,
+            set_no=request.set_no,
+            year=request.year,
+            board=request.board
+        )
         return result
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
